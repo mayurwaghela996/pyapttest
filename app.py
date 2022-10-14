@@ -64,7 +64,7 @@ def books():
     # cursor = conn.cursor(pymysql.cursors.DictCursor)
     
     if request.method == 'GET':
-        cursor.execute("SELECT * FROM books")
+        cursor.execute("SELECT * FROM books1")
         books = [
             dict(id=row['id'], author=row['author'],
             language=row['language'], title=row['title'])
@@ -82,7 +82,7 @@ def books():
         newLanguage = request.form['language']
         newTitle = request.form['title']
         # id = bookList[-1]['id']+1
-        sql = """INSERT INTO books(author, language, title) 
+        sql = """INSERT INTO books1(author, language, title) 
         VALUES(%s, %s, %s)"""
 
         # newId = bookList[-1]['id'] + 1
@@ -109,7 +109,7 @@ def singleBook(id):
     cursor = conn.cursor()
     book = None
     if request.method == 'GET':
-        cursor.execute("SELECT * FROM books where id=%s",(id,))
+        cursor.execute("SELECT * FROM books1 where id=%s",(id,))
         rows = cursor.fetchall()
         for r in rows:
             book = r
@@ -123,7 +123,7 @@ def singleBook(id):
     
     if request.method == 'PUT':
         
-        sql = """UPDATE books SET 
+        sql = """UPDATE books1 SET 
         author = %s,
         language = %s,
         title = %s
@@ -147,7 +147,7 @@ def singleBook(id):
         return ('Book data updated')
 
     if request.method == 'DELETE':
-        sql = """DELETE FROM books WHERE id=%s"""
+        sql = """DELETE FROM books1 WHERE id=%s"""
         cursor.execute(sql,(id))
         conn.commit()
         return "data deleted"
