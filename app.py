@@ -14,9 +14,9 @@ def dbConnection():
         print('DB connection is started')
         conn = pymysql.connect(
             host = 'sql6.freesqldatabase.com',
-            database = "sql6524367",
-            user = 'sql6524367',
-            password = 'NsDtvQzUTV',
+            database = "sql6526420",
+            user = 'sql6526420',
+            password = 'JFHmyY3cVA',
             charset = 'utf8mb4',
             cursorclass = pymysql.cursors.DictCursor
         )
